@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="concatApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> String Concatenation </title>
+
+    <script src="Z:\angular-1.8.2\angular-1.8.2\angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            border: solid orange;
+            max-width: 500px;
+            justify-content: center;
+            align-items: center;
+            margin-left: 35%;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .output {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>    
+</head>
+<body ng-controller="concatController">
+    
+    <h1> String Concatenation </h1>
+
+    <div>
+        <label for="string1"> Enter first string: </label>
+        <input type="text" id="string1" ng-model="string1" placeholder="First String" />
+    </div>
+
+    <div>
+        <label for="string2"> Enter second string: </label>
+        <input type="text" id="string2" ng-model="string2" placeholde="Second string" />
+    </div>
+
+    <div>
+        <button ng-click="concatenateStrings()"> Concatenate </button>
+    </div>
+
+    <div class="output">
+        <p> Result: {{result}} </p>
+    </div>
+
+    <script>
+        var app = angular.module('concatApp', []);
+
+        app.controller('concatController', function($scope){
+            $scope.string1 = ' ';
+            $scope.string2 = ' ';
+            $scope.result = ' ';
+
+            //Function to concatenate two strings
+            $scope.concatenateStrings = function(){
+                $scope.result = $scope.string1  + $scope.string2;
+            };
+        });
+    </script>
+</body>
+</html>

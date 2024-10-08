@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Student data table </title>
+    <script src="Z:\angular-1.8.2\angular-1.8.2\angular.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        table{
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th{
+            background-color: orange;
+        }
+        td{
+            background-color: greenyellow ;
+        }
+
+    </style>
+</head>
+<body ng-controller="studentController">
+    
+    <h1> Student Marks Table </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Marks </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in students">
+                <td> {{student.name}} </td>
+                <td> {{student.marks}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var app = angular.module('studentApp',[]);
+        
+        app.controller('studentController',function($scope){
+            //Array of student data
+            $scope.students= [
+                {name:'gaurav', marks:'95'},
+                {name:'vivek', marks:'97'},
+                {name:'mahesh', marks:'85'},
+                {name:'naveena', marks:'89'},
+                {name:'shubham', marks:'80'},
+            ];
+        });
+    </script>
+</body>
+</html>

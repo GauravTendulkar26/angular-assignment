@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="listApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Array elements in bulleted list </title>
+
+    <script src="Z:\angular-1.8.2\angular-1.8.2\angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        ul {
+            list-style-type: disc;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+        li {
+            font-size: 18px;
+        }
+    </style>    
+</head>
+<body ng-controller="listController">
+
+    <h1> Bulleted list of Array Elements </h1>
+    <br>
+    <br>
+
+    <ul>
+        <li ng-repeat="item in items"> {{item}} </li>
+    </ul>
+    
+    <script>
+        var app = angular.module('listApp', []);
+
+        app.controller('listController', function($scope){
+            // array of items to display
+            $scope.items=[
+                'Katif',
+                'Atif',
+                'Arjit',
+                'AR R',
+                'Jubin'
+            ];
+        });
+    </script>
+</body>
+</html>

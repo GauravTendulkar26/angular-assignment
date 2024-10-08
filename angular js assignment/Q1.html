@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="currencyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Currency Calculator </title>
+    
+    <script src="Z:\angular-1.8.2\angular-1.8.2\angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 100px;
+            text-align: center;
+            border: solid green;
+            max-width: 500px;
+            justify-content: center;
+            align-items: center;
+            margin-left: 35%;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body ng-controller="currencyController">
+
+    <h1> Currency Calculator </h1>
+    <div>
+        <label for="rupees"> Enter amount in Rs: </label>
+        <input type="number" id="rupees" ng-model="amountInRupees" placeholder="Amount in Rs" />
+    </div>
+
+    <div>
+        <h3> Converted Values </h3>
+        <p> USD: {{convertToUSD() | currency:'$'}} </p>
+        <p> Euro: {{convertToEuro() | currency:'E'}} </p>
+    </div>
+    
+    <script>
+        var app = angular.module('currencyApp', []);
+
+        app.controller('currencyController', function($scope) {
+            // conversion rates
+            const rupeesToUSD = 0.012;     // 1 Rs = 0.012 USD
+            const rupeesToEuro = 0.011;    // 1 Rs = 0.011 Euro
+
+            $scope.amountInRupees = 0;
+
+            // function to convert Rs to USD
+            $scope.convertToUSD = function(){
+                return $scope.amountInRupees * rupeesToUSD;
+            };
+
+            // function to convert Rs to Euro
+            $scope.convertToEuro = function(){
+                return $scope.amountInRupees * rupeesToEuro;
+            };
+        });
+    </script>
+
+</body>
+</html>
